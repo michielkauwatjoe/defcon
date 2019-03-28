@@ -998,6 +998,14 @@ class Font(BaseObject):
         if progressBar is not None:
             progressBar.update()
 
+    def close(self):
+        """
+        Closes the font, cleaning up any file locks.
+        """
+        if hasattr(self, "_reader"):
+            self._reader.close()
+
+
     # -----------
     # Identifiers
     # -----------
